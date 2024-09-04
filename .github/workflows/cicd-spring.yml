@@ -37,5 +37,5 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: afreire75/BETA:1
+          tags: afreire75/spring-bmi-calc:latest
         
