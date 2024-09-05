@@ -38,4 +38,13 @@ jobs:
           file: Dockerfile
           push: true
           tags: afreire75/spring-bmi-calc:latest
+
+      - name: Deploy to production
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+            #configuracion para AWS.
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.PASSWORD }}
+            script: docker run --pull always -d -p 80:8000 afreire75/spring-bmi-calc:latest
         
