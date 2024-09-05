@@ -46,5 +46,8 @@ jobs:
             host: ${{ secrets.HOST }}
             username: ${{ secrets.USERNAME }}
             key: ${{ secrets.PASSWORD }}
-            script: docker run --pull always -d -p 80:8000 afreire75/spring-bmi-calc:latest
+            script: |
+              docker stop spring-bmi-calc
+              docker rm spring-bmi-calc
+              docker run --pull always -d -p 80:8000 afreire75/spring-bmi-calc:latest
         
